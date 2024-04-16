@@ -1,8 +1,12 @@
+package BTL;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class DSNV {
     ArrayList<Nhanvien> DSNV = new ArrayList<Nhanvien>();
+
     public void nhapDSKNV() {
         Scanner sc = new Scanner(System.in);
         int n;
@@ -16,23 +20,64 @@ public class DSNV {
                 sc.nextLine();
             }
         }
-        for (int i=0;i<n;i++){
+        for (int i = 0; i < n; i++) {
             Nhanvien x = new Nhanvien();
-            if(DSNV.size()==0){
+            if (DSNV.size() == 0) {
                 x.setSoNV(0);
-            }else {
+            } else {
                 x.setSoKH(DSNV.size());
             }
-            System.out.println("\nNhập thông khách hàng thứ"+(DSNV.size()+1)+":");
+            System.out.println("\nNhập thông nhân viên thứ" + (DSNV.size() + 1) + ":");
             x.NhapNV();
             DSNV.add(x);
 
         }
     }
-    public void hienDSNV(){
-        System.out.printf("\n%-10s | %-10s | %-10s | %-10s | %-15s | %-15s | %-15s| %-10s","maNV","hoTen","soDT","diaChi","gioiTinh","chucVu","namSinh","HSL");
-        for(Nhanvien nhanvien: DSNV){
+
+    public void hienDSNV() {
+        System.out.printf("\n%-10s | %-10s | %-10s | %-10s | %-15s | %-15s | %-15s | %-10s | %-10s", "maNV", "hoTen", "soDT", "diaChi", "gioiTinh", "chucVu", "namSinh", "HSL", "tinhluong");
+        for (Nhanvien nhanvien : DSNV) {
             System.out.println(nhanvien.toString());
+        }
+    }
+
+    public void sxDSNVtheoten() {
+        System.out.println("Danh sách khi sắp xếp theo tên nhân viên: ");
+        Collections.sort(DSNV);
+        hienDSNV();
+    }
+
+    public void lietkenvcoluongtren2000000() {
+        Boolean cokhong = false;
+        for (Nhanvien nhanvien : DSNV) {
+            if (nhanvien.tinhLuong() > 2000000) {
+
+                if (!cokhong) {
+                    System.out.println("Danh sách nhân viên có lương trên 2000000: ");
+                    System.out.printf("\n%-10s | %-10s | %-10s | %-10s | %-15s | %-15s | %-15s | %-10s | %-10s", "maNV", "hoTen", "soDT", "diaChi", "gioiTinh", "chucVu", "namSinh", "HSL", "tinhluong");
+                }
+
+                System.out.println(nhanvien.toString());
+                cokhong = true;
+            }
+        }
+
+        if (!cokhong) {
+            System.out.println("Không có nhân viên có lương trên 2000000!");
+        }
+    }
+
+    public void xoaNV() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhập tên nhân viên cần xóa: ");
+        String ten = sc.nextLine();
+        Boolean kiemtra = false;
+        for (Nhanvien nhanvien : DSNV) {
+            if (nhanvien.getHoTen().equals(ten)) {
+                DSNV.remove(nhanvien);
+                kiemtra = true;
+                break;
+            }
         }
     }
 }
