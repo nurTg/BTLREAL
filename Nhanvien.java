@@ -1,10 +1,21 @@
+package BTL;
+
 import java.util.Scanner;
 
-public class Nhanvien {
+public class Nhanvien implements Comparable<Nhanvien> {
 
         String hoTen,soDT,diaChi,maNV,gioiTinh,chucVu;
         int namSinh;
         int soNV,HSL;
+        public static float LCB=1150000;
+
+    public static float getLCB() {
+        return LCB;
+    }
+
+    public static void setLCB(float LCB) {
+        Nhanvien.LCB = LCB;
+    }
 
     public String getMaNV() {
         return maNV;
@@ -38,7 +49,7 @@ public class Nhanvien {
 
 
     public String toString() {
-        return String.format("\n%-10s | %-10s | %-10s | %-10s | %-15s | %-15s | %-15s| %-10s",maNV,hoTen,soDT,diaChi,gioiTinh ,chucVu,namSinh,HSL);
+        return String.format("\n%-10s | %-10s | %-10s | %-10s | %-15s | %-15s | %-15s | %-10s | %-10s",maNV,hoTen,soDT,diaChi,gioiTinh ,chucVu,namSinh,HSL,tinhLuong());
     }
 
     public Nhanvien() {
@@ -213,6 +224,15 @@ public class Nhanvien {
             }
         }
         }
+    public float tinhLuong() {
+        return LCB*HSL;
     }
+
+
+    @Override
+    public int compareTo(Nhanvien o) {
+        return hoTen.compareTo(((Nhanvien)o).getHoTen());
+    }
+}
 
 
