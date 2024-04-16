@@ -1,3 +1,7 @@
+package BTL;
+
+import BTL.Khachhang;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -56,7 +60,7 @@ public class Hoadon {
         this.soLuong = soLuong;
         this.thanhTien = thanhTien;
     }
-    public void nhapHD(ArrayList<Khachhang>dskh,ArrayList<Nhanvien>dsnv,ArrayList<Thietbi>dstb){
+    public void nhapHD(ArrayList<Khachhang>dskh, ArrayList<Nhanvien>dsnv, ArrayList<Thietbi>dstb){
         while(true){
             try{
                 System.out.println("Nhập ngày lập hóa đơn: ");
@@ -144,9 +148,9 @@ public class Hoadon {
         System.out.printf("\nNgày lập:%s",ngayLap);
         System.out.printf("\nSố lượng thiết bị:%s",soLuong);
         System.out.println("\nNhân viên lập hóa đơn:"+NV.getHoTen());
-        System.out.println("Khách hàng thuê phòng:"+KH.getHoTen());
-        System.out.println("Thông tin phòng thuê ");
-        System.out.printf("\n %-15s | %-15s | %-15s | %-15s | %-15s","maLoai","ten","namSX","giaBan","thanhtien");
+        System.out.println("Khách hàng mua thiết bị:"+KH.getHoTen());
+        System.out.println("Thông tin thiết bị: ");
+        System.out.printf("\n %-20s| %-20s| %-20s|%-20s|%-10s","maLoai","ten","namSX","giaBan","thanhtien");
         System.out.printf(TB.toString()+thanhTien);
     }
 }
