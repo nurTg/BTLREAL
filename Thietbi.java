@@ -1,3 +1,5 @@
+package BTL;
+
 import java.util.Scanner;
 
 public class Thietbi {
