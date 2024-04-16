@@ -1,6 +1,10 @@
+package BTL;
+
+import java.io.Serializable;
+import java.util.Collections;
 import java.util.Scanner;
 
-public class Khachhang {
+public class Khachhang implements Comparable<Khachhang> {
     String hoTen,soDT,diaChi,maKH,gioiTinh;
     int namSinh;
     int soKH;
@@ -86,6 +90,7 @@ public class Khachhang {
     public String toString() {
         return String.format("\n%-15s | %-15s | %-15s | %-10s | %-10s | %-10s",hoTen,soDT,diaChi,maKH,namSinh,gioiTinh);
     }
+
     public void NhapKH(){
         Scanner sc= new Scanner(System.in);
         while(true){
@@ -154,4 +159,10 @@ public class Khachhang {
             }
         }
     }
+    @Override
+    public int compareTo(Khachhang o){
+        return hoTen.compareTo(((Khachhang)o).getHoTen());
+    }
 }
+
+
