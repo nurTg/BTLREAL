@@ -5,8 +5,10 @@ import BTL.Khachhang;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.Serializable;
 
-public class DSHD {
+
+public class DSHD implements Serializable {
     ArrayList<Hoadon> dshd = new ArrayList<Hoadon>();
     Scanner sc = new Scanner(System.in);
 
@@ -42,7 +44,7 @@ public class DSHD {
                 hienDSHD();
             }
             else {
-                System.out.println("Không có mã hóa đơn cần tìm");
+                System.out.println("\nKhông có mã hóa đơn cần tìm");
             }
         }
     }
@@ -55,10 +57,12 @@ public class DSHD {
     }
     public void ghifile() throws IOException {
         try {
-            FileOutputStream fos = new FileOutputStream("DSHD.DAT");
+            FileOutputStream fos = new FileOutputStream("dshd.dat");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(dshd);
+            oos.flush();
             oos.close();
+            fos.close();
         }
         catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -71,7 +75,7 @@ public class DSHD {
 
     public void docfile() throws IOException {
         try {
-            FileInputStream fis = new FileInputStream("DSHD.DAT");
+            FileInputStream fis = new FileInputStream("dshd.dat");
             ObjectInputStream ois = new ObjectInputStream(fis);
             ArrayList<Hoadon> ds = (ArrayList<Hoadon>) ois.readObject();
             ois.close();
