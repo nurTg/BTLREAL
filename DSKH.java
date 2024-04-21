@@ -50,11 +50,11 @@ public class DSKH {
     }
     public void xoaKH() {
         Scanner sc=new Scanner(System.in);
-        System.out.println("Nhập tên khách hàng cần xóa: ");
-        String ten=sc.nextLine();
+        System.out.println("Nhập mã khách hàng cần xóa: ");
+        String ma=sc.nextLine();
         Boolean kiemtra = false;
         for(Khachhang khachhang:DSKH) {
-            if(khachhang.getHoTen().equals(ten)) {
+            if(khachhang.getMaKH().equals(ma)) {
                 DSKH.remove(khachhang);
                 kiemtra=true;
                 break;
@@ -62,7 +62,7 @@ public class DSKH {
         }
 
         if(!kiemtra) {
-            System.out.println("Không tìm thấy người có tên %s" +ten);
+            System.out.println("Không tìm thấy người có mã %s" +ma);
         }
     }
 
