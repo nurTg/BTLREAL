@@ -2,10 +2,11 @@ package BTL;
 
 import BTL.Khachhang;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Hoadon {
+public class Hoadon implements Serializable {
     String ngayLap;
     int maHD;
     int soLuong;
