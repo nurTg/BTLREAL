@@ -69,11 +69,11 @@ public class DSNV {
 
     public void xoaNV() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Nhập tên nhân viên cần xóa: ");
-        String ten = sc.nextLine();
+        System.out.println("Nhập mã nhân viên cần xóa: ");
+        String ma = sc.nextLine();
         Boolean kiemtra = false;
         for (Nhanvien nhanvien : DSNV) {
-            if (nhanvien.getHoTen().equals(ten)) {
+            if (nhanvien.getMaNV().equals(ma)) {
                 DSNV.remove(nhanvien);
                 kiemtra = true;
                 break;
