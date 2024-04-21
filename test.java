@@ -6,6 +6,7 @@ import BTL.DSNV;
 import BTL.DSTB;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class test {
@@ -89,6 +90,7 @@ public class test {
                     break;
                 case 13:
                     dsnv.xoaNV();
+                    break;
                 case 14:
                     dshd.timkiemHD();
                     break;
